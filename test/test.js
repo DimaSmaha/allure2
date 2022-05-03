@@ -1,0 +1,15 @@
+it('should demonstrate the addValue command', async () => {
+    await browser.url('https://v6.webdriver.io/')
+    const myButton = await $('[href="/docs/api.html"]')
+    await myButton.click()
+    console.log('SSILKA is ' + await browser.getUrl());
+    console.log('HEADER IS '+ await browser.getTitle())
+    const form = await $('//*[text()="JSONWire protocol"]')
+    const attr = await form.getAttribute('href')
+    console.log('HREF is '+ attr)
+    let input = await $('#search_input_react') 
+    await input.addValue('test is ')
+    await browser.pause(2000)
+    await input.addValue('DONE!')
+    await browser.pause(5000)
+})
